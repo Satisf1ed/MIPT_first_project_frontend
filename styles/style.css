@@ -214,25 +214,22 @@ body, div, section, h1, h3, h2 {
 
 .flex-row_projects__card-cover {
     position: relative;
-    width: 100%;
+    width: 95%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     order: 2;
     opacity: 0;
     display: flex;
     align-items: flex-end;
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding-left: 5%;
+    margin-bottom: 5%;
 }
 
 .flex-row_projects__card-cover:hover {
     opacity: 1;
-}
-
-.flex-row_projects__card-cover a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    margin-left: 5%;
-    margin-bottom: 5%;
 }
 
 .transition {
