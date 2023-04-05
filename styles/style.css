@@ -213,7 +213,7 @@ body, div, section, h1, h3, h2 {
 }
 
 .flex-row_projects__card-cover {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -266,6 +266,13 @@ body, div, section, h1, h3, h2 {
     .flex-row_projects__card {
         height: 500px;
         width: 500px;
+    }
+}
+
+@media only screen and (min-width: 1701px) {
+    .flex-row_projects__card {
+        height: 550px;
+        width: 550px;
     }
 }
 
