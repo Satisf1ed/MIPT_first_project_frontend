@@ -18,10 +18,37 @@
     <section class="home" id="home">
         <div class="home-darkness">
             <nav class="home-darkness__navbar">
-                <a href="#about">about</a>
-                <a href="#projects">projects</a>
-                <a href="#footer">contacts</a>
+                <a class="home-darkness__navbar_link" href="#about">about</a>
+                <a class="home-darkness__navbar_link" href="#photos">photos</a>
+                <a class="home-darkness__navbar_link" href="#projects">projects</a>
+                <a class="home-darkness__navbar_link" href="#footer">contacts</a>
+                <span id="show-form" class="home-darkness__navbar_link home-darkness__navbar_write-me">write me!</span>
             </nav>
+
+            <div class="popup">
+                <div class="popup__close">&times;</div>
+                <form action="#" class="form" id="write-me" method="POST" novalidate>
+                    <h2>Write Me</h2>
+                    <div class="form-element">
+                        <label class="form-element__label" for="name">Name</label>
+                        <input class="form__input" type="text" id="name" placeholder="Enter name">
+                        <label class="error-label_invisible"></label>
+                    </div>
+                    <div class="form-element">
+                        <label class="form-element__label" for="email">Email</label>
+                        <input data-email="true" class="form__input" type="text" id="email" placeholder="Enter email">
+                        <label class="error-label_invisible"></label>
+                    </div>
+                    <div class="form-element">
+                        <label class="form-element__label" for="textarea"></label>
+                        <textarea id="textarea" class="form__input" rows="5" cols="30" placeholder="Comment here"></textarea>
+                        <label class="error-label_invisible"></label>
+                    </div>
+                    <div class="form-element">
+                        <button type="submit" class="form__submit">Send</button>
+                    </div>
+                </form>
+            </div>
 
             <div class="home__main">
                 <h3>Welcome</h3>
@@ -76,6 +103,34 @@
         </div>
     </section>
 
+    <section class="gallery" id="photos">
+        <div class="title">
+            <h2>My photos</h2>
+        </div>
+
+        <div class="gallery__full-image" id="fullImgBox">
+            <img src="./images/iss.jpg" alt="opened image" class="photo-grid__item" id="fullImg">
+            <span class="close" onclick="closeFullImg()">&times;</span>
+            <span class="arrow arrow_right" onclick="changeSlides(1)">&#10095;</span>
+            <span class="arrow arrow_left" onclick="changeSlides(-1)">&#10094;</span>
+        </div>
+
+        <div class="photo-grid">
+            <img src="./images/cubesat_img.jpg" id="1" alt="окно поезда" class="photo-grid__item" onclick="showSlide(1)">
+            <img src="./images/iss.jpg" id="2" alt="верхушки гор" class="photo-grid__item" onclick="showSlide(2)">
+            <img src="./images/cubesat_img.jpg" id="3" alt="собака на сене" class="photo-grid__item" onclick="showSlide(3)">
+            <img src="./images/iss.jpg" id="4" alt="холмы в тумане" class="photo-grid__item" onclick="showSlide(4)">
+            <img src="./images/cubesat_img.jpg" id="5" alt="колесо на льду" class="photo-grid__item" onclick="showSlide(5)">
+            <img src="./images/iss.jpg" id="6" alt="горы вдалеке" class="photo-grid__item" onclick="showSlide(6)">
+            <img src="./images/cubesat_img.jpg" id="7" alt="горы" class="photo-grid__item" onclick="showSlide(7)">
+            <img src="./images/iss.jpg" id="8" alt="знак пешеходного перехода" class="photo-grid__item" onclick="showSlide(8)">
+            <img src="./images/cubesat_img.jpg" id="9" alt="горы в тумане" class="photo-grid__item" onclick="showSlide(9)">
+            <img src="./images/iss.jpg" id="10" alt="одна гора вдалеке" class="photo-grid__item" onclick="showSlide(10)">
+            <img src="./images/cubesat_img.jpg" id="11" alt="скалистый берег" class="photo-grid__item" onclick="showSlide(11)">
+            <img src="./images/iss.jpg" id="12" alt="верхушки холмов в тумане" class="photo-grid__item" onclick="showSlide(12)">
+        </div>
+    </section>
+
     <section class="projects" id="projects">
         <div class="title">
             <h2>My Projects</h2>
@@ -106,5 +161,6 @@
     </footer>
 
 </div>
+<script src="script.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ body, div, section, h1, h3, h2 {
     align-items: center;
 }
 
-.home-darkness__navbar a {
+.home-darkness__navbar_link {
     font-family: 'Cormorant Garamond', sans-serif;
     font-size: 0.8rem;
     color: white;
@@ -23,7 +23,12 @@ body, div, section, h1, h3, h2 {
     position: relative;
 }
 
-.home-darkness__navbar a::before {
+.home-darkness__navbar_write-me {
+    color: #862121;
+    cursor: pointer;
+}
+
+.home-darkness__navbar_link::before {
     content: "";
     width: 15px;
     height: 2px;
@@ -35,7 +40,11 @@ body, div, section, h1, h3, h2 {
     opacity: 0;
 }
 
-.home-darkness__navbar a:hover::before {
+.home-darkness__navbar_write-me::before {
+    background-color: #862121;
+}
+
+.home-darkness__navbar_link:hover::before {
     opacity: 1;
 }
 
@@ -107,6 +116,7 @@ body, div, section, h1, h3, h2 {
 .title {
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 .title h2 {
@@ -133,7 +143,7 @@ body, div, section, h1, h3, h2 {
     background-color: #1f1f1f;
     width: 300px;
     height: 680px;
-    margin-top: 20px;
+    margin-top: 70px;
     border-radius: 25px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, .8);
 }
@@ -319,4 +329,192 @@ body, div, section, h1, h3, h2 {
     color: #4a4848;
     font-weight: normal;
     opacity: 0.8;
+}
+
+.gallery {
+    margin: 0 0 100px 0;
+}
+
+.photo-grid {
+    width: calc(288/320*100vw);
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    grid-template-rows: repeat(12, 1fr);
+}
+
+@media screen and (min-width: 768px) {
+    .photo-grid {
+        width: calc(720/768*100vw);
+        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        padding-top: 88px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .photo-grid {
+        width: calc(928/1024*100vw);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 14px;
+        padding-top: 92px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .photo-grid {
+        width: calc(1184/1280*100%);
+        gap: 16px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+.photo-grid__item {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.gallery__full-image {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.gallery__full-image img {
+    width: 90%;
+    max-width: 500px;
+}
+
+.arrow {
+    font-size: 50px;
+    position: absolute;
+    color: white;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.arrow_right {
+    right: 3%;
+}
+
+.arrow_left {
+    left: 3%;
+}
+
+.arrow_inactive {
+    opacity: 0;
+    cursor: default;
+}
+
+.arrow_inactive:hover {
+    opacity: 0;
+}
+
+.close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.popup {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    padding: 4%;
+    background: #fff;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    opacity: 0;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.popup_active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.popup__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 20px;
+    max-height: 20px;
+    cursor: pointer;
+}
+
+.form h2 {
+    text-align: center;
+    margin: 10px 0 20px;
+    color: #222;
+}
+
+.form-element {
+    margin: 20px 0;
+}
+
+.form-element__label {
+    color: #222;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 10px 0 10px 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.form-element textarea {
+    margin-top: 10px;
+}
+
+.form__submit {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #222;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.error {
+    border-color: red;
+}
+
+.error-label_invisible {
+    display: none;
+}
+
+.error-label {
+    display: block;
+    color: red;
 }
