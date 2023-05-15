@@ -76,11 +76,9 @@ form.addEventListener('submit', (event) => {
     if (validation()) {
         buttonSubmitForm.classList.add('form__submit_sending');
         buttonSubmitForm.textContent = 'Sending...';
-        const formName = document.getElementById('name').value;
-        const formEmail = document.getElementById('email').value;
-        const formText = document.getElementById('textarea').value;
+        const {formName, formEmail, formText} = event.currentTarget.elements;
         console.log(formName, formEmail, formText);
-        let response = fetch('http://localhost:3000', {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             mode:'no-cors',
             headers: {
@@ -91,14 +89,17 @@ form.addEventListener('submit', (event) => {
                 email: formEmail,
                 text: formText
             })
-        });
-        if (response.ok) {
+        })
+        .then(function() {
             buttonSubmitForm.classList.add('form__submit_success');
             buttonSubmitForm.textContent = 'Sent!';
-        } else {
-            alert('Oops... Something went wrong :(');
-            closeForm();
-        }
+            form.reset();
+            setTimeout(function() {
+                buttonSubmitForm.classList.remove('form__submit_success');
+                buttonSubmitForm.classList.remove('form__submit_sending');
+                buttonSubmitForm.textContent = 'Send';
+            }, 2000);
+        });
     }
 });
 
