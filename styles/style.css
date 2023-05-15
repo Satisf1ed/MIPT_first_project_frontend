@@ -9,6 +9,8 @@ body, div, section, h1, h3, h2 {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .home-darkness__navbar_link {
@@ -21,6 +23,17 @@ body, div, section, h1, h3, h2 {
     text-decoration: none;
     padding-left: 30px;
     position: relative;
+}
+
+.home-darkness__navbar_change-theme {
+    width: 4vw;
+    height: 4vw;
+    background-image: url("../images/icon-light.png");
+    background-size: contain;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    background-repeat: no-repeat;
 }
 
 .home-darkness__navbar_write-me {
@@ -48,6 +61,10 @@ body, div, section, h1, h3, h2 {
     opacity: 1;
 }
 
+.home-darkness__navbar_change-theme:hover::before {
+    opacity: 0;
+}
+
 .home-darkness__navbar::after {
     content: '';
     padding-right: 5%;
@@ -60,7 +77,6 @@ body, div, section, h1, h3, h2 {
     background-size: cover;
     background-image: url('../images/header_img.jpg');
     display: flex;
-    margin-bottom: 100px;
 }
 
 .home-darkness {
@@ -108,22 +124,10 @@ body, div, section, h1, h3, h2 {
     top: 50%;
 }
 
-.about {
-    min-height: 100vh;
-    margin-bottom: 100px;
-}
-
 .title {
     display: flex;
     justify-content: center;
     margin: 0;
-}
-
-.title h2 {
-    font-family: 'Cormorant Garamond', sans-serif;
-    font-size: 3.5rem;
-    color: #1f1f1f;
-    font-weight: normal;
 }
 
 .flex-row {
@@ -139,63 +143,9 @@ body, div, section, h1, h3, h2 {
     justify-content: space-around;
 }
 
-.flex-row-about-card {
-    background-color: #1f1f1f;
-    width: 300px;
-    height: 680px;
-    margin-top: 70px;
-    border-radius: 25px;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, .8);
-}
-
-.flex-row-about-card h3 {
-    color: white;
-    font-family: 'Cormorant Garamond', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: normal;
-    text-align: center;
-    padding-top: 4%;
-    letter-spacing: .3rem;
-    position: relative;
-}
-
-.flex-row-about-card h3::after {
-    display: block;
-    content: "";
-    height: 2px;
-    background-color: white;
-    position: absolute;
-    padding-left: 50%;
-    padding-right: 50%;
-}
-
-.flex-row-about-card h4 {
-    color: white;
-    font-family: 'Cormorant Garamond', sans-serif;
-    font-size: 1.4rem;
-    font-weight: normal;
-    padding-left: 7%;
-    position: relative;
-}
-
 .flex-row-about-card__list {
     list-style-type: "✓ ";
     padding-right: 3%;
-}
-
-.flex-row-about-card__list li {
-    color: white;
-    font-family: 'Cormorant Garamond', sans-serif;
-    font-size: 1.6rem;
-    font-weight: normal;
-    position: relative;
-    margin-top: 5%;
-}
-
-.projects {
-    min-height: 100vh;
-    margin-bottom: 100px;
 }
 
 .flex-row_projects {
@@ -303,6 +253,10 @@ body, div, section, h1, h3, h2 {
     padding-top: 120px;
 }
 
+.footer__flex-row_ending {
+    padding-top: 40px;
+}
+
 .footer__flex-row a {
     font-family: "montserrat-bold", sans-serif;
     font-size: 1.2rem;
@@ -329,10 +283,6 @@ body, div, section, h1, h3, h2 {
     color: #4a4848;
     font-weight: normal;
     opacity: 0.8;
-}
-
-.gallery {
-    margin: 0 0 100px 0;
 }
 
 .photo-grid {

@@ -1,0 +1,46 @@
+@keyframes rain {
+    0% {
+        top: -100vh;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.rain {
+    display: none;
+    position: fixed;
+    z-index: 256;
+    top: 0;
+    right: 0;
+    height: 200vh;
+    width: 120%;
+    background-image: url('../images/confetti.png');
+    opacity: 0.8;
+}
+
+.rain_animate {
+    animation: rain 1s linear infinite;
+}
+
+.rain_active {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .rain_active {
+        display: none;
+    }
+}
+
+.button_rain {
+    cursor: pointer;
+    z-index: 257;
+    width: 4vw;
+    height: 4vw;
+    border: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../images/rain.png");
+    background-color: transparent;
+}

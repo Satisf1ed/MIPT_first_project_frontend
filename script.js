@@ -1,26 +1,31 @@
 const fullImgBox = document.getElementById("fullImgBox");
 const fullImg = document.getElementById("fullImg");
 const form = document.getElementById('write-me');
+const buttonChangeTheme = document.querySelector('.home-darkness__navbar_change-theme');
+const buttonRain = document.querySelector('.button_rain');
+let rain = document.querySelector('.rain');
 let slideIndex = 1;
+const allInput = document.querySelectorAll('.form__input');
+let isLightTheme = true;
+
+function removeError(input) {
+    const parent = input.parentNode;
+    const errorLabel = parent.querySelector('.error-label_invisible');
+    if (errorLabel.classList.contains('error-label')) {
+        input.classList.remove('error');
+        errorLabel.classList.remove('error-label')
+    }
+}
+
+function createError(input, text) {
+    const parent = input.parentNode;
+    input.classList.add('error');
+    const errorLabel = parent.querySelector('.error-label_invisible');
+    errorLabel.classList.add('error-label');
+    errorLabel.textContent = text;
+}
 
 function validation() {
-    function removeError(input) {
-        const parent = input.parentNode;
-        const errorLabel = parent.querySelector('.error-label_invisible');
-        if (errorLabel.classList.contains('error-label')) {
-            input.classList.remove('error');
-            errorLabel.classList.remove('error-label')
-        }
-    }
-
-    function createError(input, text) {
-        const parent = input.parentNode;
-        input.classList.add('error');
-        const errorLabel = parent.querySelector('.error-label_invisible');
-        errorLabel.classList.add('error-label');
-        errorLabel.textContent = text;
-    }
-
     const validateEmail = (email) => {
         return email.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -28,7 +33,6 @@ function validation() {
     };
 
     let result = true;
-    const allInput = document.querySelectorAll('.form__input');
 
     for (const input of allInput) {
         removeError(input);
@@ -53,7 +57,11 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (validation()) {
-
+        fetch('', {
+            method: 'POST',
+            body: {
+            }
+        });
         form.reset();
     }
 });
@@ -64,6 +72,10 @@ function openForm() {
 
 function closeForm() {
     document.querySelector('.popup').classList.remove('popup_active');
+    for (const input of allInput) {
+        removeError(input);
+    }
+    form.reset();
 }
 
 document.querySelector('#show-form').addEventListener('click', openForm);
@@ -118,5 +130,33 @@ document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
         closeFullImg();
         closeForm();
+    }
+});
+
+buttonChangeTheme.addEventListener('click', () => {
+    let light = "./styles/light_theme.css";
+    let dark = "./styles/dark_theme.css";
+
+    let current = document.getElementById('theme').getAttribute('href');
+    if (current === dark) {
+        current = light;
+    } else {
+        current = dark;
+    }
+
+    document.getElementById('theme').setAttribute('href', current);
+});
+
+buttonRain.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    rain.classList.toggle('rain_active');
+    rain.classList.toggle('rain_animate');
+});
+
+rain.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    if (rain.classList.contains('rain_active')) {
+        rain.classList.remove('rain_active');
+        rain.classList.remove('rain_animate');
     }
 })

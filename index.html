@@ -11,6 +11,8 @@
     <meta property="og:image" content="./images/header_img.jpg"/>
 
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/rain.css">
+    <link rel="stylesheet" href="./styles/light_theme.css" id="theme">
     <title>Maria Malykh - CV</title>
 </head>
 <body class="body">
@@ -18,6 +20,7 @@
     <section class="home" id="home">
         <div class="home-darkness">
             <nav class="home-darkness__navbar">
+                <button class="home-darkness__navbar_link home-darkness__navbar_change-theme"></button>
                 <a class="home-darkness__navbar_link" href="#about">about</a>
                 <a class="home-darkness__navbar_link" href="#photos">photos</a>
                 <a class="home-darkness__navbar_link" href="#projects">projects</a>
@@ -61,51 +64,51 @@
 
     <section class="about" id="about">
         <div class="title">
-            <h2>About Me</h2>
+            <h2 class="theme">About Me</h2>
         </div>
 
         <div class="flex-row flex-row-about">
-            <div class="flex-row-about-card">
-                <h3>interests</h3>
+            <div class="flex-row-about-card theme_two">
+                <h3 class="theme_one">interests</h3>
                 <ul class="flex-row-about-card__list">
-                    <li>Playing the piano</li>
-                    <li>Dancing (Hip-Hop cheer team of MIPT)</li>
-                    <li>Learning English (Level: C1)</li>
-                    <li>Learning Chinese (Level: A1)</li>
-                    <li>Travelling</li>
-                    <li>Cooking</li>
-                    <li>Playing volleyball</li>
+                    <li class="theme_one">Playing the piano</li>
+                    <li class="theme_one">Dancing (Hip-Hop cheer team of MIPT)</li>
+                    <li class="theme_one">Learning English (Level: C1)</li>
+                    <li class="theme_one">Learning Chinese (Level: A1)</li>
+                    <li class="theme_one">Travelling</li>
+                    <li class="theme_one">Cooking</li>
+                    <li class="theme_one">Playing volleyball</li>
                 </ul>
             </div>
-            <div class="flex-row-about-card">
-                <h3>skills</h3>
+            <div class="flex-row-about-card theme_two">
+                <h3 class="theme_one">skills</h3>
                 <ul class="flex-row-about-card__list">
-                    <li>Object-oriented programming on C++, Python</li>
-                    <li>Python frameworks: Django, matplotlib, numpy, pandas</li>
-                    <li>Arduino</li>
-                    <li>Frontend development</li>
-                    <li>Database fundamentals</li>
-                    <li>Git</li>
-                    <li>Microelectronics</li>
+                    <li class="theme_one">Object-oriented programming on C++, Python</li>
+                    <li class="theme_one">Python frameworks: Django, matplotlib, numpy, pandas</li>
+                    <li class="theme_one">Arduino</li>
+                    <li class="theme_one">Frontend development</li>
+                    <li class="theme_one">Database fundamentals</li>
+                    <li class="theme_one">Git</li>
+                    <li class="theme_one">Microelectronics</li>
                 </ul>
             </div>
-            <div class="flex-row-about-card">
-                <h3>education</h3>
+            <div class="flex-row-about-card theme_two">
+                <h3 class="theme_one">education</h3>
                 <ul class="flex-row-about-card__list">
-                    <li>Kirov Physics and Mathematics Lyceum</li>
-                    <li>Kirov summer multi-subject school (2017-2020)</li>
-                    <li>MIPT winter olympiad school (2021-2022)</li>
-                    <li>Innopolis school of olympiad training (2019-2020)</li>
-                    <li>Education Centre of Sirius</li>
-                    <li>Higher School of Software Engineering (since 2022)</li>
+                    <li class="theme_one">Kirov Physics and Mathematics Lyceum</li>
+                    <li class="theme_one">Kirov summer multi-subject school (2017-2020)</li>
+                    <li class="theme_one">MIPT winter olympiad school (2021-2022)</li>
+                    <li class="theme_one">Innopolis school of olympiad training (2019-2020)</li>
+                    <li class="theme_one">Education Centre of Sirius</li>
+                    <li class="theme_one">Higher School of Software Engineering (since 2022)</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="gallery" id="photos">
+    <section class="gallery theme_one" id="photos">
         <div class="title">
-            <h2>My photos</h2>
+            <h2 class="theme_two">My photos</h2>
         </div>
 
         <div class="gallery__full-image" id="fullImgBox">
@@ -131,9 +134,9 @@
         </div>
     </section>
 
-    <section class="projects" id="projects">
+    <section class="projects theme_one" id="projects">
         <div class="title">
-            <h2>My Projects</h2>
+            <h2 class="theme_two">My Projects</h2>
         </div>
 
         <div class="flex-row flex-row_projects">
@@ -155,11 +158,16 @@
             <a href="https://github.com/mariamalykh" target="_blank">github</a>
         </div>
 
-        <div class="flex-row footer__flex-row">
+        <div class="flex-row footer__flex-row footer__flex-row_ending">
+            <button class="button_rain"></button>
+        </div>
+
+        <div class="flex-row footer__flex-row footer__flex-row_ending">
             <p class="ending">Ⓒ 2023, Made by Andrew Zhogov</p>
         </div>
     </footer>
 
+    <div class="rain"></div>
 </div>
 <script src="script.js"></script>
 </body>

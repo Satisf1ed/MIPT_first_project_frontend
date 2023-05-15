@@ -1,0 +1,74 @@
+.title h2 {
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: normal;
+}
+
+.about {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background: #1f1f1f;
+}
+
+.flex-row-about-card {
+    background-color: #aaaaaa;
+    width: 300px;
+    height: 680px;
+    margin-top: 70px;
+    border-radius: 25px;
+    box-shadow: 4px 4px 5px rgba(255, 255, 255, 0.8);
+}
+
+.flex-row-about-card h3 {
+    color: #1f1f1f;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 4%;
+    letter-spacing: .3rem;
+    position: relative;
+}
+
+.flex-row-about-card h3::after {
+    display: block;
+    content: "";
+    height: 2px;
+    background-color: #1f1f1f;
+    position: absolute;
+    padding-left: 50%;
+    padding-right: 50%;
+}
+
+.flex-row-about-card h4 {
+    color: #1f1f1f;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    padding-left: 7%;
+    position: relative;
+}
+
+.flex-row-about-card__list li {
+    color: #1f1f1f;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    position: relative;
+    margin-top: 5%;
+}
+
+.projects {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background: #1f1f1f;
+}
+
+.gallery {
+    margin: 0;
+    padding-bottom: 100px;
+    background: #1f1f1f;
+}
