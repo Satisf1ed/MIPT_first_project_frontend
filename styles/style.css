@@ -450,10 +450,22 @@ body, div, section, h1, h3, h2 {
     height: 40px;
     border: none;
     outline: none;
-    background: #222;
+    background: #1f1f1f;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+}
+
+.form__submit__disabled {
+    background: #757373;
+}
+
+.form__submit_sending {
+    background-color: cornflowerblue;
+}
+
+.form__submit_success {
+    background-color: lawngreen;
 }
 
 .error {
