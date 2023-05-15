@@ -5,6 +5,15 @@
     font-weight: normal;
 }
 
+.home {
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    background-size: cover;
+    background-image: url('../images/header_dark.jpeg');
+    display: flex;
+}
+
 .about {
     min-height: 100vh;
     padding-bottom: 100px;
