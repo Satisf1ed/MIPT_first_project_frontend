@@ -342,6 +342,32 @@ body, div, section, h1, h3, h2 {
     z-index: 10;
 }
 
+.gallery__full-image_animate {
+    animation: gallery__full-image 1s linear;
+}
+
+@keyframes gallery__full-image {
+    0% {
+        background: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.gallery__full-image_animate img {
+    animation: gallery__full-image-img 1s linear;
+}
+
+@keyframes gallery__full-image-img {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .gallery__full-image img {
     width: 90%;
     max-width: 500px;

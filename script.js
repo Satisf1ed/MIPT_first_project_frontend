@@ -1,5 +1,7 @@
 const fullImgBox = document.getElementById("fullImgBox");
 const fullImg = document.getElementById("fullImg");
+const helloBlock = document.getElementById("helloBlock");
+const hello = document.getElementById("hello");
 const form = document.getElementById('write-me');
 const buttonSubmitForm = document.querySelector('.form__submit');
 const buttonChangeTheme = document.querySelector('.home-darkness__navbar_change-theme');
@@ -7,6 +9,22 @@ const buttonRain = document.querySelector('.button_rain');
 let rain = document.querySelector('.rain');
 let slideIndex = 1;
 const allInput = document.querySelectorAll('.form__input');
+
+
+
+function welcome() {
+    setTimeout(function() {
+        helloBlock.style.display = 'flex';
+        helloBlock.classList.add('gallery__full-image_animate');
+        hello.src = './images/welcome.jpeg';
+    }, 5000);
+}
+
+function closeWelcome() {
+    helloBlock.style.display = 'none';
+}
+
+welcome();
 
 function removeError(input) {
     const parent = input.parentNode;
@@ -155,6 +173,7 @@ document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
         closeFullImg();
         closeForm();
+        closeWelcome();
     }
 });
 
