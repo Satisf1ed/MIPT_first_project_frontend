@@ -3,6 +3,21 @@ body, div, section, h1, h3, h2 {
     padding: 0;
 }
 
+.close-space {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+}
+
+.close-space.active {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.9);
+}
+
 .home-darkness__navbar {
     height: 8%;
     display: flex;
@@ -320,30 +335,25 @@ body, div, section, h1, h3, h2 {
     cursor: pointer;
 }
 
+#fullImg, #hello {
+    z-index: 100;
+}
+
 .gallery__full-image {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0);
     position: fixed;
     top: 0;
     left: 0;
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 100;
 }
 
 .gallery__full-image_animate {
-    animation: gallery__full-image 1s linear;
-}
-
-@keyframes gallery__full-image {
-    0% {
-        background: rgba(0, 0, 0, 0);
-    }
-    100% {
-        background: rgba(0, 0, 0, 0.9);
-    }
+    animation: gallery__full-image-img 1s linear;
 }
 
 .gallery__full-image_animate img {
@@ -362,6 +372,7 @@ body, div, section, h1, h3, h2 {
 .gallery__full-image img {
     width: 90%;
     max-width: 500px;
+    max-height: 500px;
 }
 
 .arrow {
@@ -370,6 +381,7 @@ body, div, section, h1, h3, h2 {
     color: white;
     opacity: 0.3;
     cursor: pointer;
+    z-index: 102;
 }
 
 .arrow:hover {
@@ -400,11 +412,13 @@ body, div, section, h1, h3, h2 {
     font-size: 30px;
     color: white;
     cursor: pointer;
+    z-index: 100;
 }
 
 .popup {
+    pointer-events: none;
     z-index: 100;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.25);
@@ -421,6 +435,7 @@ body, div, section, h1, h3, h2 {
 .popup_active {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+    pointer-events: all;
 
     transition: top 0ms ease-in-out 0ms,
                 opacity 200ms ease-in-out 0ms,

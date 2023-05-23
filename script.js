@@ -9,19 +9,38 @@ const buttonRain = document.querySelector('.button_rain');
 let rain = document.querySelector('.rain');
 let slideIndex = 1;
 const allInput = document.querySelectorAll('.form__input');
+const closePopupSpace = document.getElementById('close-space');
+const closePopupSpaceGallery = document.getElementById('close-space_gallery');
+const closePopupSpaceWelcome = document.getElementById('close-space_welcome');
 
+function closeSpace(object) {
+    object.addEventListener('click', () => {
+        closeFullImg();
+        closeWelcome();
+        closeForm();
+    })
+}
 
+closeSpace(closePopupSpaceGallery);
+closeSpace(closePopupSpace);
+closeSpace(closePopupSpaceWelcome);
 
 function welcome() {
+    if (localStorage.getItem("sent")) {
+        return;
+    }
     setTimeout(function() {
         helloBlock.style.display = 'flex';
         helloBlock.classList.add('gallery__full-image_animate');
         hello.src = './images/welcome.jpeg';
+        closePopupSpaceWelcome.classList.add('active');
     }, 5000);
 }
 
 function closeWelcome() {
     helloBlock.style.display = 'none';
+    localStorage.setItem("sent", "true");
+    closePopupSpaceWelcome.classList.remove('active');
 }
 
 welcome();
@@ -104,10 +123,12 @@ form.addEventListener('submit', (event) => {
 });
 
 function openForm() {
+    closePopupSpace.classList.add('active');
     document.querySelector('.popup').classList.add('popup_active');
 }
 
 function closeForm() {
+    closePopupSpace.classList.remove('active');
     document.querySelector('.popup').classList.remove('popup_active');
     for (const input of allInput) {
         removeError(input);
@@ -127,11 +148,13 @@ document.querySelector('#show-form').addEventListener('click', openForm);
 document.querySelector('.popup__close').addEventListener('click', closeForm);
 
 function openFullImg(picture) {
+    closePopupSpaceGallery.classList.add('active');
     fullImgBox.style.display = 'flex';
     fullImg.src = picture;
 }
 
 function closeFullImg() {
+    closePopupSpaceGallery.classList.remove('active');
     fullImgBox.style.display = 'none';
 }
 
@@ -148,7 +171,7 @@ function showSlides(n) {
         left_button.classList.remove('arrow_inactive');
     }
 
-    if (n === slides.length - 1) {
+    if (n === slides.length - 2) {
         right_button.classList.add('arrow_inactive');
     } else {
         right_button.classList.remove('arrow_inactive');
@@ -169,14 +192,6 @@ function showSlide(n) {
     slideIndex = n;
     showSlides(n);
 }
-
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-        closeFullImg();
-        closeForm();
-        closeWelcome();
-    }
-});
 
 buttonChangeTheme.addEventListener('click', () => {
     let light = "./styles/light_theme.css";

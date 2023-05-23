@@ -44,3 +44,9 @@
     background-image: url("../images/rain.png");
     background-color: transparent;
 }
+
+@media (max-width: 800px) {
+    .button_rain {
+        display: none;
+    }
+}
