@@ -1,3 +1,11 @@
+.home__main h1 {
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: normal;
+    padding-left: 3%;
+}
+
 .title h2 {
     font-family: 'Cormorant Garamond', sans-serif;
     font-size: 3.5rem;
@@ -12,6 +20,19 @@
     background-size: cover;
     background-image: url('../images/header_img.jpg');
     display: flex;
+}
+
+.home-darkness__navbar {
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
 }
 
 .about {

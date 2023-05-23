@@ -12,6 +12,8 @@ const allInput = document.querySelectorAll('.form__input');
 const closePopupSpace = document.getElementById('close-space');
 const closePopupSpaceGallery = document.getElementById('close-space_gallery');
 const closePopupSpaceWelcome = document.getElementById('close-space_welcome');
+const body = document.querySelector('.body');
+console.log(body);
 
 function closeSpace(object) {
     object.addEventListener('click', () => {
@@ -34,6 +36,7 @@ function welcome() {
         helloBlock.classList.add('gallery__full-image_animate');
         hello.src = './images/welcome.jpeg';
         closePopupSpaceWelcome.classList.add('active');
+        body.style.overflow = 'hidden';
     }, 5000);
 }
 
@@ -41,6 +44,7 @@ function closeWelcome() {
     helloBlock.style.display = 'none';
     localStorage.setItem("sent", "true");
     closePopupSpaceWelcome.classList.remove('active');
+    body.style.overflow = 'scroll';
 }
 
 welcome();
@@ -69,6 +73,10 @@ function validation() {
         );
     };
 
+    const validateLanguage = (lang) => {
+        return /^([a-z\s]+)$/iu.test(lang.value);
+    }
+
     let result = true;
 
     for (const input of allInput) {
@@ -76,6 +84,11 @@ function validation() {
         if (input.value === "") {
             result = false;
             createError(input, 'Field is empty');
+        }
+
+        if (!validateLanguage(input)) {
+            result = false;
+            createError(input, 'Language is not english');
         }
 
         if (input.dataset.email) {
@@ -89,6 +102,11 @@ function validation() {
 
     return result;
 }
+
+form.addEventListener('input', (event) => {
+    event.preventDefault();
+    if (validation()) {}
+})
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -109,26 +127,28 @@ form.addEventListener('submit', (event) => {
                 text: formText
             })
         })
-        .then(function() {
-            buttonSubmitForm.classList.add('form__submit_success');
-            buttonSubmitForm.textContent = 'Sent!';
-            form.reset();
-            setTimeout(function() {
-                buttonSubmitForm.classList.remove('form__submit_success');
-                buttonSubmitForm.classList.remove('form__submit_sending');
-                buttonSubmitForm.textContent = 'Send';
-            }, 2000);
-        });
+            .then(function() {
+                buttonSubmitForm.classList.add('form__submit_success');
+                buttonSubmitForm.textContent = 'Sent!';
+                form.reset();
+                setTimeout(function() {
+                    buttonSubmitForm.classList.remove('form__submit_success');
+                    buttonSubmitForm.classList.remove('form__submit_sending');
+                    buttonSubmitForm.textContent = 'Send';
+                }, 2000);
+            });
     }
 });
 
 function openForm() {
     closePopupSpace.classList.add('active');
+    body.style.overflow = 'hidden';
     document.querySelector('.popup').classList.add('popup_active');
 }
 
 function closeForm() {
     closePopupSpace.classList.remove('active');
+    body.style.overflow = 'scroll';
     document.querySelector('.popup').classList.remove('popup_active');
     for (const input of allInput) {
         removeError(input);
@@ -149,6 +169,7 @@ document.querySelector('.popup__close').addEventListener('click', closeForm);
 
 function openFullImg(picture) {
     closePopupSpaceGallery.classList.add('active');
+    body.style.overflow = 'hidden';
     fullImgBox.style.display = 'flex';
     fullImg.src = picture;
 }
@@ -156,6 +177,7 @@ function openFullImg(picture) {
 function closeFullImg() {
     closePopupSpaceGallery.classList.remove('active');
     fullImgBox.style.display = 'none';
+    body.style.overflow = 'scroll';
 }
 
 function showSlides(n) {
