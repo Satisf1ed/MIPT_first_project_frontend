@@ -13,7 +13,6 @@ const closePopupSpace = document.getElementById('close-space');
 const closePopupSpaceGallery = document.getElementById('close-space_gallery');
 const closePopupSpaceWelcome = document.getElementById('close-space_welcome');
 const body = document.querySelector('.body');
-console.log(body);
 
 function closeSpace(object) {
     object.addEventListener('click', () => {
@@ -222,12 +221,28 @@ buttonChangeTheme.addEventListener('click', () => {
     let current = document.getElementById('theme').getAttribute('href');
     if (current === dark) {
         current = light;
+        localStorage.setItem("isLightTheme", "true");
     } else {
         current = dark;
+        localStorage.setItem("isLightTheme", "false");
     }
 
     document.getElementById('theme').setAttribute('href', current);
 });
+
+function setTheme() {
+    let light = "./styles/light_theme.css";
+    let dark = "./styles/dark_theme.css";
+    let current = document.getElementById('theme').getAttribute('href');
+    if (localStorage.getItem('isLightTheme') === 'true') {
+        current = light;
+    } else {
+        current = dark;
+    }
+    document.getElementById('theme').setAttribute('href', current);
+}
+
+setTheme();
 
 buttonRain.addEventListener('click', (evt) => {
     evt.preventDefault();
